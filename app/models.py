@@ -22,7 +22,23 @@ class Topic(str, Enum):
     ROADS = "ROADS"
     WASTE = "WASTE"
     PLANNING = "PLANNING"
+    PARKS = "PARKS"
     OTHER = "OTHER"
+
+
+# Tēmu nosaukumi (CR-0). Saraksta secība sakrīt ar Topic secību, OTHER beigās.
+TOPIC_NAMES: dict[Topic, str] = {
+    Topic.ROADS: "Ceļi un ielas",
+    Topic.WASTE: "Atkritumi",
+    Topic.PLANNING: "Teritorijas plānošana",
+    Topic.PARKS: "Parki un skvēri",
+    Topic.OTHER: "Cits",
+}
+
+
+class TopicItem(BaseModel):
+    code: Topic
+    name: str
 
 
 class SubmissionStatus(str, Enum):
